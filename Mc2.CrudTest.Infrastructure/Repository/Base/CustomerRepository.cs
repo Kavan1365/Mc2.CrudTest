@@ -33,6 +33,23 @@ namespace Store.Infrastructure.Repository.Base
         }
         public virtual async Task AddAsync(Customer entity, CancellationToken cancellationToken, bool saveNow = true)
         {
+
+            if (string.IsNullOrEmpty(entity.FirstName))
+                throw new ArgumentException("is requrid Firstname", "FirstName");
+
+            if (string.IsNullOrEmpty(entity.LastName))
+                throw new ArgumentException("is requrid lastname", "LastName");
+            
+            if (string.IsNullOrEmpty(entity.Email))
+                throw new ArgumentException("is requrid Email", "Email");
+
+           
+
+            var check = _dbContext.Set<Customer>().Any(z => z.Email == entity.Email);
+            if (check)
+                throw new ArgumentException("The email is duplicate", "Email");
+
+
             await _dbContext.Set<Customer>().AddAsync(entity, cancellationToken).ConfigureAwait(false);
             if (saveNow)
                 await _dbContext.SaveChangesAsync(cancellationToken).ConfigureAwait(false);

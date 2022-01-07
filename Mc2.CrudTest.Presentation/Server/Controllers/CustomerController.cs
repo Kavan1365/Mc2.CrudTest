@@ -31,8 +31,6 @@ namespace Mc2.CrudTest.Presentation.Server.Controllers
         [HttpGet("{id}")]
         public async Task<CustomerResponse> Get(int id)
         {
-            
-
             var query = new GetCustomerByIdQuery(id);
             var customer =await _mediator.Send(query);
             return customer;
