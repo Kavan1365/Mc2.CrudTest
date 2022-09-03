@@ -11,6 +11,7 @@ namespace Mc2.CrudTest.Infrastructure.Data
         {
         }
 
+        public DbSet<Domain.Store> Stores { get; set; }
         public DbSet<Customer> Customers { get; set; }
 
       

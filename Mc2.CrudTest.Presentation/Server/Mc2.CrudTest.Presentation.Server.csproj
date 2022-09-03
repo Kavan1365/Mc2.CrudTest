@@ -11,6 +11,10 @@
   <ItemGroup>
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.17">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
@@ -19,7 +23,6 @@
     <ProjectReference Include="..\..\Mc2.CrudTest.Application\Mc2.CrudTest.Application.csproj" />
     <ProjectReference Include="..\..\Mc2.CrudTest.Domain\Mc2.CrudTest.Domain.csproj" />
     <ProjectReference Include="..\..\Mc2.CrudTest.Infrastructure\Mc2.CrudTest.Infrastructure.csproj" />
-    <ProjectReference Include="..\Front\Mc2.CrudTest.Presentation.Front.csproj" />
   </ItemGroup>
 
 

@@ -1,6 +1,7 @@
 using Mc2.CrudTest.Application.Commands;
 using Mc2.CrudTest.Domain.Base;
 using Mc2.CrudTest.Infrastructure.Data;
+using Mc2.CrudTest.Infrastructure.Repository.Base;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,6 +33,7 @@ namespace Mc2.CrudTest.Presentation.Server
             services.AddDbContext<CrudContext>(c=> c.UseSqlServer(Configuration.GetConnectionString("SqlServer")),ServiceLifetime.Singleton);
             services.AddMediatR(typeof(CreateCustomerCommand).GetTypeInfo().Assembly);
             services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IStoreRepository, StoreRepository>();
 
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Customer", Version = "v1" }); });
         }
